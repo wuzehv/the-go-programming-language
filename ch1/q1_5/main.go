@@ -1,4 +1,4 @@
-package main
+package q1_5
 
 import (
 	"image"
@@ -7,7 +7,6 @@ import (
 	"io"
 	"math"
 	"math/rand"
-	"os"
 )
 
 var palette = []color.Color{color.White, color.RGBA{R: 255, G: 235, B: 205, A: 1}}
@@ -17,13 +16,8 @@ const (
 	blackIndex = 1
 )
 
-func main() {
-	lissajous(os.Stdout)
-}
-
-func lissajous(out io.Writer) {
+func Lissajous(out io.Writer, cycles float64) {
 	const (
-		cycles  = 5
 		res     = 0.001
 		size    = 100
 		nframes = 64
@@ -43,7 +37,7 @@ func lissajous(out io.Writer) {
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*frep + phase)
-			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), 1)
+			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), blackIndex)
 		}
 
 		phase += 1
