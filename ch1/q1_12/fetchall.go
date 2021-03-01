@@ -18,7 +18,12 @@ func main() {
 			log.Print(err)
 		}
 
-		cycles, _ := strconv.Atoi(r.Form["cycles"][0])
+		var cycles int = 5
+		if _, ok := r.Form["cycles"]; ok {
+			if len(r.Form["cycles"]) > 0 {
+				cycles, _ = strconv.Atoi(r.Form["cycles"][0])
+			}
+		}
 
 		q1_5.Lissajous(w, float64(cycles))
 	})
