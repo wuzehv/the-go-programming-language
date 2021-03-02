@@ -14,7 +14,7 @@ func main() {
 	ch := make(chan string)
 
 	for _, url := range os.Args[1:] {
-		go fetchWithTimeout(url, 1 * time.Second, ch)
+		go fetchWithTimeout(url, 1*time.Second, ch)
 	}
 
 	for range os.Args[1:] {
