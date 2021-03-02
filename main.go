@@ -1,15 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/wuzehv/the_go_programming_language/ch2/q2_5"
 
 func main() {
-	fmt.Println(pc)
-}
-
-var pc [256]byte
-
-func init() {
-	for i := range pc {
-		pc[i] = pc[i/2] + byte(i&1)
-	}
+	q2_5.PopCount(11)
 }
